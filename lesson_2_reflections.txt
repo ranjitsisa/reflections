@@ -8,5 +8,9 @@ A Staging Area allows you to logically separate your commits of one or multiple 
 3) How can you use the staging area to make sure you have one commit per logical change?
 Add all logical change related files to the staging area using git add and then finally commit.
 
+4) What are some situations when branches would be helpful in keeping your history organized? How would branches help?
+Branches allow you to move along a different path or feature addition without affecting the main build/code - so in a way you could have a master branch running and have other experimental or new feature branches without impacting the production code.
+
+
 
 
