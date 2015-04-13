@@ -11,6 +11,11 @@ Add all logical change related files to the staging area using git add and then 
 4) What are some situations when branches would be helpful in keeping your history organized? How would branches help?
 Branches allow you to move along a different path or feature addition without affecting the main build/code - so in a way you could have a master branch running and have other experimental or new feature branches without impacting the production code.
 
+5) How do the diagrams help you visualize the branch structure?
+Diagrams are a great way to see visually the branches and commits and the spokes that branch out of the master branch.
+Diagrams also help us to see if there's any commit lying around with no branch-name.
+With visualization it is easy to track back to the head node.
+
 
 
 
