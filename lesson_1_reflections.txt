@@ -1,0 +1,133 @@
+1) How did viewing a diff between two versions of a file help you spot the bug?
+
+
+It was helpful because of the following reasons:
+a. Manually doing so is virtually impossible when the lines of code increase and manual process is not reliable.
+b. diff organizes the differences in a nice way with the - and + so we know exactly what happened at each line where the change occured.
+
+2) How did viewing a diff between two versions of a file help you see the bug that was introduced?
+a. diff was able to point out the differences between two files at various line numbers and display the differences.
+
+3) How could having easy access to the entire history of a file make you a more efficient programmer in the long term?
+a. it will make it easier to switch back to an old version of code in case something breaks down the line with recent changes.
+b. we can also see past versions of code which may or may not be useful, and can learn from this. It will actually improve the way we write code.
+c. knowing so much history about the code changes, I think, will develop a kind of clean-code-writing thinking and thinking of long term consequences of writinng inefficient code.
+
+
+4) What do you think are the pros and cons of manually choosing when to create a commit, like you do in Git, vs having versions automatically saved, like Google docs does?
+PROS:
+a. manually chosing gives you an opportunity to commit when a logical piece of work has been done. And it is easier to review later what commits were done at logical intervals.
+
+CONS:
+a. you may end up passionately writing and forget or be lazy in committing soon and might end up waiting too long.
+
+
+5) Why do you think some version control systems, like Git, allow saving multiple files in one commit, while others, like Google Docs, treat each file separately?
+a. Saving multiple files in one commit is a good idea when the changes span across multiple files, for example: adding a button in html may require changes in .js file too, so its treated as one repository for that logical commit/change.
+
+
+6) How can you use the commands git log and git diff to view the history of files?
+git log displays the commits like below, so you can use it to see when the commit was made and the description of the commit.
+
+$ git log
+commit 3884eab839af1e82c44267484cf2945a766081f3
+Author: cbuckey <caroline@udacity.com>
+Date:   Fri Apr 29 12:33:05 2011 -0700
+
+    Add color
+
+commit 3e42136a76cf78c6c421cd720427bf6337c2d623
+Author: Doug McInnes <doug@dougmcinnes.com>
+Date:   Tue Mar 15 22:34:49 2011 -0700
+
+    now using requestAnimationFrame
+
+    see this for more info:
+    http://paulirish.com/2011/requestanimationframe-for-smart-animating/
+
+commit 4035769377cce96a88d5c1167079e12f30492391
+Author: Doug McInnes <doug@dougmcinnes.com>
+Date:   Wed Jun 9 21:04:32 2010 -0700
+
+    frame interval was set wrong after game was paused
+
+
+
+
+git diff displays the difference between two commits, so you can see what changed between commits... as below:
+
+rsandhu@USLPFLW0WZ1 ~/version-control/asteroids (master)
+$ git diff f19cb1b80fe27e938e4d72770ca0a42f25e99ecc b0678b161fcf74467ed3a631105
+57e3d6229cfa6
+diff --git a/game.js b/game.js
+index 20be658..553849b 100644
+--- a/game.js
++++ b/game.js
+@@ -4,9 +4,9 @@
+ //
+
+ KEY_CODES = {
+-  13: 'enter',
+   32: 'space',
+   37: 'left',
++  38: 'up',
+   39: 'right',
+   40: 'down',
+   70: 'f',
+@@ -392,7 +392,7 @@ Ship = function () {
+       this.vel.rot = 0;
+     }
+
+-    if (KEY_STATUS.space) {
++    if (KEY_STATUS.up) {
+       var rad = ((this.rot-90) * Math.PI)/180;
+       this.acc.x = 0.5 * Math.cos(rad);
+       this.acc.y = 0.5 * Math.sin(rad);
+@@ -406,7 +406,7 @@ Ship = function () {
+     if (this.delayBeforeBullet > 0) {
+       this.delayBeforeBullet -= delta;
+     }
+-    if (KEY_STATUS.enter) {
++    if (KEY_STATUS.space) {
+       if (this.delayBeforeBullet <= 0) {
+         this.delayBeforeBullet = 10;
+         for (var i = 0; i < this.bullets.length; i++) {
+@@ -919,7 +919,7 @@ Game = {
+     waiting: function () {
+       Text.renderText(ipad ? 'Touch Sreen to Start' : 'Press Space to Start', 36, Game.canvasWidth/2 - 270, Game.canvasHeight/2);
+       if (KEY_STATUS.space || window.gameStart) {
+-        KEY_STATUS.space = false; // hack so we don't move right away
++        KEY_STATUS.space = false; // hack so we don't shoot right away
+
+
+
+
+
+
+7) Git Errors and Warnings Solution
+
+Should not be doing an octopus 
+Octopus is a strategy Git uses to combine many different versions of code together. This message can appear if you try to use this strategy in an inappropriate situation.
+
+You are in 'detached HEAD' state 
+HEAD is what Git calls the commit you are currently on. You can “detach” the HEAD by switching to a previous commit, which we’ll see in the next video. Despite what it sounds like, it’s actually not a bad thing to detach the HEAD. Git just warns you so that you’ll realize you’re doing it.
+
+Panic! (the 'impossible' happened) 
+This is a real error message, but it’s not output by Git. Instead it’s output by GHC, the compiler for a programming language called Haskell. It’s reserved for particularly surprising errors!
+
+Takeaway
+
+We hope these errors and warnings amused you as much as they amused us! Now that you know what kind of errors Git can throw, you’re ready to start checking out previous versions of files with Caroline.
+
+
+8) How might using version control make you more confident to make changes that could break something?
+Actually this version control mechanism is superb! I can connfidently make any changes, commit, and revert back without worrying about the potential danger of screwing up everything! Opens up the wide possibility of experimenting and playing with code to do wonderful things in a better way!
+The idea of exploration! With version control you can explore such a large space of things to try, without worrying about having to go back and fix the broken project! Helped explore deep architectural concepts!
+
+
+
+9) Now that you have your workspace set up, what do you want to try using Git for?
+I want to use Git first to save this reflections file!
+And then want to write some test code and check it for myself!
+
+
