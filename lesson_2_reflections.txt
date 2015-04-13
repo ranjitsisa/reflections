@@ -5,3 +5,8 @@ When we initialize a repository with git init git creates a .git folder to start
 A Staging Area allows you to logically separate your commits of one or multiple files. You could add logically related files to the staging area and then commit.
 
 
+3) How can you use the staging area to make sure you have one commit per logical change?
+Add all logical change related files to the staging area using git add and then finally commit.
+
+
+
